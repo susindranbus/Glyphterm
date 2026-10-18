@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>Glyphterm</title>
+  <link rel="stylesheet" href="../node_modules/@xterm/xterm/css/xterm.css" />
+  <link rel="stylesheet" href="commands-panel.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="tabbar">
+    <div id="tabs"></div>
+    <button id="new-tab" title="New tab (Ctrl+T)">+</button>
+    <button id="profile-menu-btn" title="Choose shell">&#9662;</button>
+    <div id="spacer"></div>
+    <button id="history-btn" title="History &amp; saved command sets (Ctrl+Shift+H)">&#128339;</button>
+    <button id="input-btn" title="Direct input box (Ctrl+Shift+I)">&#9000;</button>
+    <button id="help-btn" title="Shortcuts (F1)">?</button>
+  </div>
+  <div id="profile-menu" class="menu hidden"></div>
+  <div id="tab-menu" class="menu hidden" style="min-width:220px"></div>
+  <div id="workspace"></div>
+  <div id="search" class="hidden">
+    <input id="search-input" placeholder="Find…" spellcheck="false" />
+    <button id="search-prev" title="Previous (Shift+Enter)">&#8593;</button>
+    <button id="search-next" title="Next (Enter)">&#8595;</button>
+    <button id="search-close" title="Close (Esc)">&#10005;</button>
+  </div>
+  <div id="palette" class="hidden">
+    <div id="palette-box">
+      <input id="palette-input" placeholder="Type a command…" spellcheck="false" />
+      <div id="palette-list"></div>
+    </div>
+  </div>
+  <div id="help" class="hidden">
+    <h2>Glyphterm shortcuts</h2>
+    <table>
+      <tr><td>Ctrl+T</td><td>New tab (default shell)</td></tr>
+      <tr><td>Ctrl+Shift+1…9</td><td>New tab with shell 1…9 (see ▾ menu)</td></tr>
+      <tr><td>Ctrl+Shift+K</td><td>Duplicate tab (same shell and folder)</td></tr>
+      <tr><td>Ctrl+Shift+N</td><td>New window</td></tr>
+      <tr><td>Ctrl+Shift+D</td><td>Split pane side-by-side</td></tr>
+      <tr><td>Ctrl+Shift+E</td><td>Split pane top/bottom</td></tr>
+      <tr><td>Ctrl+Shift+W</td><td>Close pane</td></tr>
+      <tr><td>Ctrl+Shift+Enter</td><td>Maximize / restore pane</td></tr>
+      <tr><td>Alt+Arrows</td><td>Move between panes</td></tr>
+      <tr><td>Ctrl+Tab / Ctrl+Shift+Tab</td><td>Next / previous tab</td></tr>
+      <tr><td>Ctrl+1…9</td><td>Go to tab</td></tr>
+      <tr><td>Ctrl+Shift+C / V</td><td>Copy / paste (right-click also works)</td></tr>
+      <tr><td>Ctrl+Shift+F</td><td>Find</td></tr>
+      <tr><td>Ctrl+Shift+I</td><td>Toggle direct input box (native text editing)</td></tr>
+      <tr><td>Ctrl+Shift+H</td><td>History &amp; saved command sets</td></tr>
+      <tr><td>Ctrl+Shift+P</td><td>Command palette</td></tr>
+      <tr><td>Alt+Click profile</td><td>Open shell in split pane</td></tr>
+      <tr><td>Ctrl+= / Ctrl+- / Ctrl+0</td><td>Font size</td></tr>
+      <tr><td>Ctrl+Shift+R</td><td>Force full repaint</td></tr>
+      <tr><td>Ctrl+,</td><td>Open settings.json</td></tr>
+      <tr><td>Double-click tab</td><td>Rename tab</td></tr>
+      <tr><td>Right-click tab</td><td>Duplicate / rename / close</td></tr>
+    </table>
+    <p>Press Esc to close.</p>
+  </div>
+  <script src="../node_modules/@xterm/xterm/lib/xterm.js"></script>
+  <script src="../node_modules/@xterm/addon-fit/lib/addon-fit.js"></script>
+  <script src="../node_modules/@xterm/addon-unicode-graphemes/lib/addon-unicode-graphemes.js"></script>
+  <script src="../node_modules/@xterm/addon-web-links/lib/addon-web-links.js"></script>
+  <script src="../node_modules/@xterm/addon-search/lib/addon-search.js"></script>
+  <script src="complex-script.js"></script>
+  <script src="commands-panel.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

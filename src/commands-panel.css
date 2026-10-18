@@ -1,0 +1,53 @@
+/* History + saved sets drawer (desktop and web) */
+.cmdp { position: absolute; top: 0; right: 0; bottom: 0; width: min(440px, 100%); z-index: 45; display: flex; flex-direction: column; background: #171a21; border-left: 1px solid #2a2f3a; box-shadow: -10px 0 30px rgba(0,0,0,.45); font: 13px "Segoe UI", "Nirmala UI", system-ui, sans-serif; color: #c9d1d9; }
+.cmdp.hidden { display: none; }
+.cmdp button { font: inherit; cursor: pointer; }
+.cmdp-head { display: flex; align-items: center; gap: 4px; padding: 8px 8px 0; border-bottom: 1px solid #2a2f3a; }
+.cmdp-tab { background: none; border: none; color: #7d8590; padding: 7px 12px; border-bottom: 2px solid transparent; font-size: 13.5px !important; }
+.cmdp-tab:hover { color: #c9d1d9; }
+.cmdp-tab.active { color: #fff; border-bottom-color: #4ea1ff; }
+.cmdp-spacer { flex: 1; }
+.cmdp-x { background: none; border: none; color: #7d8590; width: 28px; height: 28px; border-radius: 6px; }
+.cmdp-x:hover { background: #2a3040; color: #fff; }
+.cmdp-search { padding: 10px 10px 6px; }
+.cmdp-search input { width: 100%; box-sizing: border-box; background: #0d0f14; color: #c9d1d9; border: 1px solid #2a2f3a; border-radius: 6px; padding: 7px 10px; font: 13px "Segoe UI", "Nirmala UI", sans-serif; outline: none; }
+.cmdp-search input:focus { border-color: #4ea1ff; }
+.cmdp-tools { display: flex; align-items: center; gap: 6px; padding: 0 10px 8px; flex-wrap: wrap; }
+.cmdp-count { color: #7d8590; font-size: 12px; margin-right: auto; }
+.cmdp .small { background: #232833; color: #c9d1d9; border: 1px solid #2f3542; border-radius: 6px; padding: 4px 10px; font-size: 12px; }
+.cmdp .small:hover:not(:disabled) { border-color: #4ea1ff; }
+.cmdp .small:disabled { opacity: .4; cursor: default; }
+.cmdp .primary { background: #1d3557; border-color: #24477a; color: #cfe3ff; }
+.cmdp .danger { color: #ff9b9b; }
+.cmdp .danger:hover { border-color: #ff6b6b !important; }
+.cmdp-list { flex: 1; overflow-y: auto; padding: 0 6px 6px; }
+.cmdp-empty { color: #7d8590; padding: 30px 16px; text-align: center; line-height: 1.5; }
+.cmdp-row { display: flex; align-items: flex-start; gap: 8px; padding: 7px 6px; border-radius: 6px; cursor: pointer; }
+.cmdp-row:hover { background: #20252f; }
+.cmdp-row.sel { background: #1b2a40; }
+.cmdp-row input { margin-top: 3px; accent-color: #4ea1ff; }
+.cmdp-body { flex: 1; min-width: 0; }
+.cmdp-cmd { font: 13px "Cascadia Mono", Consolas, "Nirmala UI", "Latha", monospace; white-space: pre-wrap; word-break: break-all; color: #e6edf3; }
+.cmdp-meta { color: #6e7681; font-size: 11.5px; margin-top: 2px; }
+.cmdp-acts { display: flex; gap: 2px; opacity: 0; }
+.cmdp-row:hover .cmdp-acts { opacity: 1; }
+.cmdp .icon { background: none; border: none; color: #7d8590; width: 24px; height: 22px; border-radius: 4px; font-size: 12px; }
+.cmdp .icon:hover { background: #2c3240; color: #fff; }
+.cmdp-set { border: 1px solid #2a2f3a; border-radius: 8px; padding: 10px; margin: 0 4px 8px; background: #1a1e26; }
+.cmdp-set-name { font-weight: 600; font-size: 14px; }
+.cmdp-set-cmds { margin: 8px 0; padding: 6px 8px; background: #0f1116; border-radius: 6px; max-height: 140px; overflow: hidden; }
+.cmdp-set-cmds .cmdp-cmd { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; word-break: normal; }
+.cmdp-set-acts { display: flex; gap: 6px; flex-wrap: wrap; }
+.cmdp-hint { color: #5b6370; font-size: 11.5px; padding: 6px 12px 8px; border-top: 1px solid #2a2f3a; }
+.cmdp-editor { position: absolute; inset: 0; background: #171a21; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+.cmdp-editor.hidden { display: none; }
+.cmdp-editor h3 { margin: 0 0 4px; font-size: 16px; }
+.cmdp-editor label { display: flex; flex-direction: column; gap: 5px; color: #9aa4b2; font-size: 12.5px; }
+.cmdp-editor small { color: #6e7681; }
+.cmdp-editor input, .cmdp-editor select, .cmdp-editor textarea { background: #0d0f14; color: #e6edf3; border: 1px solid #2a2f3a; border-radius: 6px; padding: 7px 9px; font: 13px "Segoe UI", "Nirmala UI", sans-serif; outline: none; }
+.cmdp-editor textarea { font: 13px "Cascadia Mono", Consolas, "Nirmala UI", monospace; resize: vertical; min-height: 140px; }
+.cmdp-editor input:focus, .cmdp-editor select:focus, .cmdp-editor textarea:focus { border-color: #4ea1ff; }
+.ed-buttons { display: flex; justify-content: flex-end; gap: 8px; }
+.ed-buttons button { background: #232833; color: #c9d1d9; border: 1px solid #2f3542; border-radius: 6px; padding: 6px 16px; }
+.ed-buttons .primary { background: #1d3557; border-color: #24477a; color: #cfe3ff; }
+.cmdp-row.cur, .cmdp-set.cur { outline: 1px solid #4ea1ff; outline-offset: -1px; background: #1e2a3d; }
